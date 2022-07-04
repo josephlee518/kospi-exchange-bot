@@ -1,37 +1,13 @@
-﻿# kospi-exchange-bot
+﻿# `hankook-exchange-rs`
 
-암호화폐에 이어 한국 주식시장 익스체인지 봇을 만들어보자. ~~슈퍼개미가 되어 보자~~
+## `Reboot` Notice
 
-## Requirements
+(`2022-07-04`) 한국투자증권에서 [Rest, WebSocket API](https://apiportal.koreainvestment.com/intro) 를 새로 출시함에 따라, 해당 레파지토리를 다시 리부팅합니다.
+원 레포 계정의 2FA 가 어디로 사라진 것 같은데, 새로 찾는 것 보다는 그냥 Fork 해서 새로 생성하는게 좋을 것 같아, 새로운 계정에 새로운 레파지토리로 생성하여 [Rust](https://www.rust-lang.org/) 언어로 클라이언트를'
+작성하여 새로이 개발할 예정입니다. 사이드 프로젝트로 간간히 할 예정이어서, 언제 쯤 개발이 끝날지는 모르겠고, 새로운 언어로 시도해보는 것이다 보니 공부하는 데 시간이 많이 걸릴 것 같습니다.
 
-### Operating System
+생각하고 있는 Architecture 은 ZeroMQ 를 사용해서 내부적인 메시징을 구현하고, 향후에 다른 Exchange 가 연결될 가능성이 높은 만큼 [FIX(Financial Information eXchange)](https://en.wikipedia.org/wiki/Financial_Information_eXchange) 프로토콜을 사용하여 내부적으로 시세 데이터 및 주문 데이터를 내부에서는 통일해서 사용할 수 있도록 구현해볼 예정입니다.
 
-- 윈도우.
+## LICENSE
 
-### Brokerage Services
-
-- `키움증권`: 개미들이 증권회사를 많이 사용함. 키움증권만 사용해도 크게 별 문제는 없음. 그러나 업데이트 하는 과정에서 프로그램을 껐다가 켜줘야 하는 작업이 필요하고, 접속하는 함수인 `CommConnect`함수를 프로그램 실행할 때마다 호출하고 로그인해줘야 하는 작업을 해줘야 함.
-
-- `IBK 투자증권`: 앞에 있는 키움증권과 비슷해 보이지만 실상은 업데이트 처리를 정말 잘 해줘야 하는 편임. 업데이트를 해줘도 따로 파일을 복사해서 붙여넣어주는 등의 수작업을 해줘야 함. 업데이트 과정말 잘 처리해 주면 큰 문제는 없어 보이나 이 과정이 영 빡쌔므로 사용하지 않으려고 함.
-
-- `한국투자증권`: 앞서 키움증권과 IBK 투자증권의 장점과 단점만을 결합해서 API 프로그램에서 모두 재공해 주고 있음. 오히려 이쪽 프로그램이 더 사용하기 편할 정도라고 생각함. 처음에 로그인해주는 과정에서는 프로그램(`eFriend Expert`)을 실행해주고 로그인 처리만 해주면 알아서 업데이트 처리를 해줌.
-
-### Python Side
-
-- PyQt
-	
-	- 파이썬에서 OCX 연동을 할 수 있도록 지원해주는 `빛과 구세주` 같은 프로그램. QAxWindow만 호출해서 따로 GUI 안 띄우고 사용할 수도 있음.
-
-- Pandas
-
-- NumPy
-
-- Backtest Lib.
-
-	- 보통은 Zipline을 사용해서 Backtest 를 하는데 다른 프로그램을 써도 똑같은 결과를 얻을 수 있어서 편한 프로그램을 사용해보려고 함.
-
-	- 백테스트 라이브러리는 정말 많으므로 다양한 프로그램을 골라서 사용해볼 수 있음.
-
-- Matplotlib
-
-	- CAGR, MDD 시각화
+* [`Apache 2.0 License`](https://www.apache.org/licenses/LICENSE-2.0.txt)를 따른다면, 누구든지 Contribution 가능하고, 사용할 수 있습니다.
